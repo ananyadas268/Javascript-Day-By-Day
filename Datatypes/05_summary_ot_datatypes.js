@@ -63,3 +63,14 @@ obj2.name = "Das";
 console.log(obj1.name); // DAS
 //Objects are non-primitive data types and are assigned by reference.
 //  When we do b = a, both variables point to the same memory location. So modifying one object affects the other.
+
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+//Memory
+//stack(primitive ), Heap(Non-primitive)
+let myName="Ananya";
+let myAnotherName=myName;
+myAnotherName="Riti";
+console.log(myName);
+
