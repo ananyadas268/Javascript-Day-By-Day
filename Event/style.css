@@ -1,0 +1,8 @@
+div{
+    height: 100 px;
+    weidth:100 px;
+    background-color: red;
+    color: white;
+    flex-direction: column;
+
+}
