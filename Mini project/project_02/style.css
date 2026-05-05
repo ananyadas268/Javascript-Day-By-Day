@@ -1,0 +1,12 @@
+.button {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#grey { background-color: grey; }
+#blue { background-color: rgba(0, 0, 255, 0.21); }
+#white { background-color: white; border: 1px solid black; }
+#red { background-color: rgba(255, 0, 0, 0.562); }
