@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOM Learning Playground</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      padding: 30px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #38bdf8;
+    }
+
+    .section {
+      background: #1e293b;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 25px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #facc15;
+    }
+
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #38bdf8;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    input {
+      padding: 10px;
+      width: 250px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 10px;
+    }
+
+    .highlight {
+      background: yellow;
+      color: black;
+    }
+
+    code {
+      background: black;
+      color: #38bdf8;
+      padding: 2px 5px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DOM Learning Playground</h1>
+
+  <!-- getElementById -->
+  <div class="section">
+    <h2>1. getElementById()</h2>
+
+    <p id="title">Hello DOM</p>
+
+    <button id="changeTextBtn">Change Text</button>
+
+    <p>
+      Selects ONE unique element using ID.
+    </p>
+  </div>
+
+
+  <!-- getElementsByClassName -->
+  <div class="section">
+    <h2>2. getElementsByClassName()</h2>
+
+    <p class="text">Paragraph One</p>
+    <p class="text">Paragraph Two</p>
+    <p class="text">Paragraph Three</p>
+
+    <button id="changeClassBtn">Change All Colors</button>
+
+    <p>
+      Returns HTMLCollection.
+    </p>
+  </div>
+
+
+  <!-- getElementsByTagName -->
+  <div class="section">
+    <h2>3. getElementsByTagName()</h2>
+
+    <h3>Heading One</h3>
+    <h3>Heading Two</h3>
+
+    <button id="tagBtn">Change h3 Color</button>
+
+    <p>
+      Selects elements using HTML tag.
+    </p>
+  </div>
+
+
+  <!-- querySelector -->
+  <div class="section">
+    <h2>4. querySelector()</h2>
+
+    <div class="box special-box">
+      I am selected using querySelector.
+    </div>
+
+    <button id="queryBtn">Highlight Box</button>
+
+    <p>
+      Returns FIRST matching element.
+    </p>
+  </div>
+
+
+  <!-- querySelectorAll -->
+  <div class="section">
+    <h2>5. querySelectorAll()</h2>
+
+    <li class="fruit">Apple</li>
+    <li class="fruit">Mango</li>
+    <li class="fruit">Banana</li>
+
+    <button id="allBtn">Color All Fruits</button>
+
+    <p>
+      Returns NodeList.
+    </p>
+  </div>
+
+
+  <!-- innerText and innerHTML -->
+  <div class="section">
+    <h2>6. innerText and innerHTML</h2>
+
+    <div id="contentBox">Old Content</div>
+
+    <button id="innerTextBtn">Use innerText</button>
+    <button id="innerHTMLBtn">Use innerHTML</button>
+
+    <p>
+      <code>innerText</code> changes text only.<br>
+      <code>innerHTML</code> supports HTML tags.
+    </p>
+  </div>
+
+
+  <!-- Style Manipulation -->
+  <div class="section">
+    <h2>7. Style Manipulation</h2>
+
+    <div id="styleBox" class="box">
+      Change my style.
+    </div>
+
+    <button id="styleBtn">Change Style</button>
+  </div>
+
+
+  <!-- createElement and appendChild -->
+  <div class="section">
+    <h2>8. createElement() and appendChild()</h2>
+
+    <div id="listContainer"></div>
+
+    <button id="createBtn">Add New Element</button>
+  </div>
+
+
+  <!-- remove() -->
+  <div class="section">
+    <h2>9. remove()</h2>
+
+    <div id="removeBox" class="box">
+      Remove me.
+    </div>
+
+    <button id="removeBtn">Remove Element</button>
+  </div>
+
+
+  <!-- addEventListener -->
+  <div class="section">
+    <h2>10. addEventListener()</h2>
+
+    <button id="eventBtn">Click Me</button>
+
+    <p id="eventText"></p>
+  </div>
+
+
+  <!-- Input Event -->
+  <div class="section">
+    <h2>11. Input Event</h2>
+
+    <input type="text" id="nameInput" placeholder="Type your name" />
+
+    <p id="liveText"></p>
+  </div>
+
+
+  <!-- Traversing -->
+  <div class="section">
+    <h2>12. DOM Traversing</h2>
+
+    <div id="parentBox">
+      <p>Child 1</p>
+      <p>Child 2</p>
+    </div>
+
+    <button id="traverseBtn">Show Children Count</button>
+
+    <p id="traverseResult"></p>
+  </div>
+
+
+  <!-- forEach and Array.from -->
+  <div class="section">
+    <h2>13. forEach() and Array.from()</h2>
+
+    <p class="loopItem">Item 1</p>
+    <p class="loopItem">Item 2</p>
+    <p class="loopItem">Item 3</p>
+
+    <button id="forEachBtn">Use forEach</button>
+    <button id="mapBtn">Convert to Array + map</button>
+
+    <p id="mapResult"></p>
+  </div>
+
+
+  <script>
+
+    // getElementById
+    const title = document.getElementById("title");
+
+    document.getElementById("changeTextBtn")
+    .addEventListener("click", function(){
+      title.innerText = "Text Changed Using getElementById";
+    });
+
+
+    // getElementsByClassName
+    const texts = document.getElementsByClassName("text");
+
+    document.getElementById("changeClassBtn")
+    .addEventListener("click", function(){
+
+      for(let i = 0; i < texts.length; i++){
+        texts[i].style.color = "cyan";
+      }
+
+    });
+
+
+    // getElementsByTagName
+    const headings = document.getElementsByTagName("h3");
+
+    document.getElementById("tagBtn")
+    .addEventListener("click", function(){
+
+      for(let i = 0; i < headings.length; i++){
+        headings[i].style.color = "orange";
+      }
+
+    });
+
+
+    // querySelector
+    const specialBox = document.querySelector(".special-box");
+
+    document.getElementById("queryBtn")
+    .addEventListener("click", function(){
+      specialBox.classList.toggle("highlight");
+    });
+
+
+    // querySelectorAll
+    const fruits = document.querySelectorAll(".fruit");
+
+    document.getElementById("allBtn")
+    .addEventListener("click", function(){
+
+      fruits.forEach(function(item){
+        item.style.color = "lightgreen";
+      });
+
+    });
+
+
+    // innerText
+    document.getElementById("innerTextBtn")
+    .addEventListener("click", function(){
+
+      document.getElementById("contentBox")
+      .innerText = "This is plain text.";
+
+    });
+
+
+    // innerHTML
+    document.getElementById("innerHTMLBtn")
+    .addEventListener("click", function(){
+
+      document.getElementById("contentBox")
+      .innerHTML = "<h3 style='color:red'>This is HTML Content</h3>";
+
+    });
+
+
+    // Style Manipulation
+    document.getElementById("styleBtn")
+    .addEventListener("click", function(){
+
+      const box = document.getElementById("styleBox");
+
+      box.style.backgroundColor = "purple";
+      box.style.color = "white";
+      box.style.fontSize = "22px";
+      box.style.padding = "20px";
+
+    });
+
+
+    // createElement and appendChild
+    document.getElementById("createBtn")
+    .addEventListener("click", function(){
+
+      const newElement = document.createElement("p");
+
+      newElement.innerText = "New Element Created";
+
+      document.getElementById("listContainer")
+      .appendChild(newElement);
+
+    });
+
+
+    // remove()
+    document.getElementById("removeBtn")
+    .addEventListener("click", function(){
+
+      document.getElementById("removeBox")
+      .remove();
+
+    });
+
+
+    // addEventListener
+    document.getElementById("eventBtn")
+    .addEventListener("click", function(){
+
+      document.getElementById("eventText")
+      .innerText = "Button Clicked Successfully";
+
+    });
+
+
+    // Input Event
+    document.getElementById("nameInput")
+    .addEventListener("input", function(event){
+
+      document.getElementById("liveText")
+      .innerText = "Hello " + event.target.value;
+
+    });
+
+
+    // Traversing
+    document.getElementById("traverseBtn")
+    .addEventListener("click", function(){
+
+      const parent = document.getElementById("parentBox");
+
+      document.getElementById("traverseResult")
+      .innerText = "Children Count: " + parent.children.length;
+
+    });
+
+
+    // forEach and Array.from
+    const loopItems = document.querySelectorAll(".loopItem");
+
+    document.getElementById("forEachBtn")
+    .addEventListener("click", function(){
+
+      loopItems.forEach(function(item){
+        item.style.color = "pink";
+      });
+
+    });
+
+
+    document.getElementById("mapBtn")
+    .addEventListener("click", function(){
+
+      const arr = Array.from(loopItems);
+
+      const texts = arr.map(function(item){
+        return item.innerText;
+      });
+
+      document.getElementById("mapResult")
+      .innerText = texts.join(", ");
+
+    });
+
+  </script>
+
+</body>
+</html>
