@@ -3,18 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Change background color</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        .color-btn-grey{
+            width: 80px;
+            height:80px;
+            background-color: grey;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .color-btn-white{
+            width: 80px;
+            height:80px;
+            background-color:white ;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .color-btn-blue{
+            width: 80px;
+            height:80px;
+            background-color:blue ;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .color-btn-yellow{
+            width: 80px;
+            height:80px;
+            background-color:yellow ;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-<body>
-    <h1>Change Background Color</h1>
-    <span class="button" id="grey"></span>
-    <span  class="button" id="blue"></span>
-    <span class="button" id="white"></span>
-    <span class="button" id="red"></span>
-    <h2>Click on the buttons to change the background color
-        <span>to change the background color</span>
-    </h2>
-    <script src="script.js"></script>
+<body style="background-color: #212121;color: red;">
+    <h1>Color Scheme Switcher</h1>
+    <button class="color-btn-grey"></button>
+    <button class="color-btn-white"></button>
+    <button class="color-btn-blue"></button>
+    <button class="color-btn-yellow"></button>
+    <h2>Try clicking on one of the colors above</h2>
+    <h2> change the background color of this page!</h2>
+    <script>
+        const btns=document.querySelectorAll('button');
+        btns.forEach((btn)=>{
+        btn.addEventListener('click',()=>{
+            if(btn.className==="color-btn-grey")
+            document.body.style.background="grey";
+            if(btn.className==="color-btn-white")
+            document.body.style.background="white";
+            if(btn.className==="color-btn-blue")
+            document.body.style.background="blue";
+            if(btn.className==="color-btn-yellow")
+            document.body.style.background="yellow";
+
+        })
+    })
+    </script>
 </body>
+
 </html>
