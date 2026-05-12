@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }div{
+            height:50vh;
+            width:fit-content;
+            padding:50px;
+            display: flex;            flex-direction: column;
+            align-items: center;
+            background-color: rgba(177, 220, 20, 0.297);
+            border-radius: 10px;
+        }
+        input{
+            height: 30px;
+            width: 250px;
+        } 
+    </style>
+</head>
+<body style="background-color: mediumslateblue">
+    <div>
+    <h1>DIGITAL CLOCK</h1>
+    <input type="text"></input>
+    </div>
+    </body>
+<script>
+    setInterval(()=>{
+        let date=new Date();
+        let time=date.toLocaleTimeString();
+        console.log(time);
+        let settime=document.querySelector("input");
+        settime.value=time;
+    },1000)
+</script>
+</body>
+</html>

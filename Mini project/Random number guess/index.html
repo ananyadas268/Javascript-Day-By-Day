@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:darkgray;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            color:white
+        }
+        .container{
+            background-color:rgb(37, 8, 18);
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0 0 10px rgba(0,0,0,0.1);
+            text-align:center;;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Number Guessing Game</h1>
+
+        <p>Try and guess a random number between 1 and 100</p>
+        <p>You have 10 attempts to guess the right number.</p>
+
+        <h2>Guess a number</h2>
+
+        <!-- Input -->
+        <input type="number" id="guessField">
+
+        <!-- Button -->
+        <button id="submitBtn">Submit Guess</button>
+
+        <!-- Result Message -->
+        <p id="message"></p>
+
+        <!-- Previous Guesses -->
+        <p>
+            Previous Guesses:
+            <span id="previousGuesses"></span>
+        </p>
+
+        <!-- Remaining Attempts -->
+        <p>
+            Guesses Remaining:
+            <span id="remainingGuesses">10</span>
+        </p>
+
+    </div>
+    <script>
+        let randomNumber=Math.floor(Math.random()*100)+1;
+        let button=document.getElementById("submitBtn");
+        let attempts=10;
+        button.addEventListener('click',()=>{
+            const input =document.getElementById("guessField");
+            const userGuess = parseInt(input.value);
+            let message=document.getElementById("message");
+            if(userGuess===randomNumber){
+                message.innerHTML="You are correct";
+                button.disabled = true;
+            }
+            else{
+                attempts=attempts-1;
+                if(userGuess>randomNumber){
+                    message.innerHTML="Hey buddy!you are just above the correct number";
+                    
+                }
+                else{
+                    message.innerHTML="Hey buddy!you are just lower the correct number";
+                    input.value = "";
+
+                }
+                
+            }
+            if(attempts===0){
+                button.disabled = true;
+                message.innerHTML = `Game Over! Correct number was ${randomNumber}`;
+            } 
+            const remainingGuesses = document.getElementById("remainingGuesses");
+            remainingGuesses.innerText = attempts;
+            
+        }
+        )
+    </script>
+</body>
+</html>
