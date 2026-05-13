@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-APP</title>
+    <style>
+    body{
+            background-color: darkslategray;
+            font-family: Arial;
+        }
+
+        h1{
+            color: goldenrod;
+            text-align: center;
+        }
+
+        .container{
+            background-color: goldenrod;
+            width: 500px;
+            padding: 30px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body >
+    <h1 style="color: goldenrod;">To-Do-APP</h1>
+    <div class="container">
+    <h2>ADD TASK</h2>
+    <input type="text" id="taskInput">
+    <button id="btn1">ADD</button>
+    <ul id="tasklist"></ul>
+    <p id="count">Total Tasks: 0</p>
+    </div>
+</body>
+<script>
+        const button=document.getElementById("btn1");
+        let taskcount=0;
+        button.addEventListener('click',()=>{
+        let task=document.getElementById("taskInput").value;
+        const li=document.createElement('li');
+        const tasklist=document.getElementById("tasklist");
+        
+        const count=document.getElementById('count');
+        if(task.trim()===""){
+        console.log("add task");
+            return;
+        }
+        else
+        {
+        li.innerText=task;
+        tasklist.appendChild(li);
+        const btn=document.createElement('button');
+        btn.innerText="Delete";
+        li.appendChild(btn);
+        taskcount++;
+        count.innerText = `Total Tasks: ${taskcount}`;
+        btn.addEventListener('click',()=>{
+            tasklist.removeChild(li);
+            taskcount--;
+            count.innerText = `Total Tasks: ${taskcount}`;
+        })
+    }
+    })
+</script>
+</html>
